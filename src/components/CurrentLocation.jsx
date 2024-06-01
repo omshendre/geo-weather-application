@@ -82,7 +82,7 @@ const CurrentLocation = ({ apiKey }) => {
       if (latitude !== null && longitude !== null) {
         fetchData();
       }
-    }, 10000);
+    }, 60000);
 
     return () => clearInterval(interval);
   }, [latitude, longitude]); // Dependency on latitude and longitude
