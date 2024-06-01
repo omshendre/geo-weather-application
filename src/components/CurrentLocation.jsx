@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Permission from './Permission.jsx';
 import WeatherIcons from 'react-animated-weather';
 const apiEndPoint = `https://api.openweathermap.org/data/2.5/weather?`;
@@ -36,7 +36,7 @@ const getWeatherIcon = (main, description) => {
   return 'CLEAR_DAY';
 };
 
-const CurrentLocation = ({apiKey}) => {
+const CurrentLocation = ({ apiKey }) => {
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
   const [temp, setTemp] = useState(null);
@@ -49,6 +49,9 @@ const CurrentLocation = ({apiKey}) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [searchCity, setSearchCity] = useState('');
+
+  const prevLatitudeRef = useRef(null);
+  const prevLongitudeRef = useRef(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -74,26 +77,44 @@ const CurrentLocation = ({apiKey}) => {
       });
     };
 
+    const checkGeolocationPermission = async () => {
+      try {
+        const position = await getCurrentPosition();
+        setLatitude(position.coords.latitude);
+        setLongitude(position.coords.longitude);
+      } catch (error) {
+        if (error.message === "User denied Geolocation") {
+          setError("Geolocation permission denied");
+        } else {
+          setError(error.message);
+        }
+      }
+    };
+
+    // Fetch data initially and then start fetching every 60 seconds
     fetchData();
+    const interval = setInterval(fetchData, 60000);
 
-    const interval = setInterval(() => {
-      fetchData();
-    }, 10000);
+    // Check geolocation permission every 5 minutes
+    const permissionInterval = setInterval(checkGeolocationPermission, 300000);
 
-    return () => clearInterval(interval);
-  }, []);
+    return () => {
+      clearInterval(interval);
+      clearInterval(permissionInterval);
+    };
+  }, []); // No dependencies, only run once
 
   const fetchWeatherData = ({ lat, lon, city }) => {
     let finalApiEnd = `${apiEndPoint}units=metric&appid=${apiKey}`;
     let locationString = '';
-    
+
     if (city) {
       finalApiEnd += `&q=${city}`;
       locationString = ` for ${city}`;
     } else {
       finalApiEnd += `&lat=${lat}&lon=${lon}`;
     }
-  
+
     fetch(finalApiEnd)
       .then(response => {
         if (!response.ok) {
@@ -118,7 +139,7 @@ const CurrentLocation = ({apiKey}) => {
         setLoading(false);
       });
   };
-  
+
 
   const handleSearch = () => {
     if (searchCity) {
