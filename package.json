@@ -18,7 +18,8 @@
     "react-animated-weather": "^4.0.1",
     "react-dom": "^18.2.0",
     "react-geolocated": "^4.1.2",
-    "react-live-clock": "^6.1.22"
+    "react-live-clock": "^6.1.22",
+    "readable-stream": "^4.5.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
