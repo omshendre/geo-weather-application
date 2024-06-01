@@ -139,7 +139,7 @@ const CurrentLocation = ({apiKey}) => {
             <button className="btn glass mt-4 md:mt-0 w-full md:w-auto p-2 bg-blue-500 text-white rounded" onClick={handleSearch}>Search</button>
           </div>
           <p className="large-text">City: {city}</p>
-          <p className="large-text">Temperature: {temp}°C</p>
+          <p className="large-text">Temperature: {Math.round(temp)}°C</p>
           <p className="large-text">Humidity: {humidity}%</p>
           <p className="large-text">Visibility: {Math.round(visibility / 1000)} km</p>
           <p className="large-text">Wind Speed: {Math.round(windSpeed * 3.6)} km/h</p>
