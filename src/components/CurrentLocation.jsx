@@ -4,7 +4,6 @@ import Permission from './Permission.jsx';
 import WeatherIcons from 'react-animated-weather';
 const apiEndPoint = `https://api.openweathermap.org/data/2.5/weather?`;
 
-
 const weatherMapping = {
   'Clear': {
     day: 'CLEAR_DAY',
@@ -80,7 +79,7 @@ const CurrentLocation = ({apiKey}) => {
 
     const interval = setInterval(() => {
       fetchData();
-    }, 60000);
+    }, 10000);
 
     return () => clearInterval(interval);
   }, []);
