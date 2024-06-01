@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import Permission from './Permission.jsx';
 import WeatherIcons from 'react-animated-weather';
 const apiEndPoint = `https://api.openweathermap.org/data/2.5/weather?`;
