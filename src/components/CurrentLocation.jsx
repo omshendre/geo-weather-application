@@ -87,33 +87,39 @@ const CurrentLocation = ({apiKey}) => {
   const fetchWeatherData = ({ lat, lon, city }) => {
     let finalApiEnd = `${apiEndPoint}units=metric&appid=${apiKey}`;
     let locationString = '';
-    console.log(finalApiEnd)
-    console.log(finalApiEnd)
+    
     if (city) {
       finalApiEnd += `&q=${city}`;
       locationString = ` for ${city}`;
     } else {
       finalApiEnd += `&lat=${lat}&lon=${lon}`;
     }
-
-    axios.get(finalApiEnd)
-      .then((res) => {
-        setTemp(res.data.main.temp);
-        setHumidity(res.data.main.humidity);
-        setVisibility(res.data.visibility);
-        setWindSpeed(res.data.wind.speed);
-        setWeatherMain(res.data.weather[0].main);
-        setWeatherDescription(res.data.weather[0].description);
-        setCity(res.data.name);
+  
+    fetch(finalApiEnd)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`Error fetching weather data${locationString}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        setTemp(data.main.temp);
+        setHumidity(data.main.humidity);
+        setVisibility(data.visibility);
+        setWindSpeed(data.wind.speed);
+        setWeatherMain(data.weather[0].main);
+        setWeatherDescription(data.weather[0].description);
+        setCity(data.name);
         setError(null);
       })
-      .catch(() => {
-        setError(`Error fetching weather data${locationString}`);
+      .catch(error => {
+        setError(error.message);
       })
       .finally(() => {
         setLoading(false);
       });
   };
+  
 
   const handleSearch = () => {
     if (searchCity) {
