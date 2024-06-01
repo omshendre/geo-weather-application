@@ -19,6 +19,9 @@ The Weather App is a React application that provides real-time weather informati
 4. **Display Weather Information**: The app displays the weather information on the screen. If the user denies permission, a prompt to enter a city is displayed.
 5. **City Search**: Users can enter a city name to fetch weather data for that specific location, which is then displayed.
 
+## UI Screenshot
+![UI Screenshot](ui-photo.png)
+
 ## Installation
 
 ### Prerequisites
@@ -31,3 +34,27 @@ The Weather App is a React application that provides real-time weather informati
    ```bash
    git clone https://github.com/yourusername/weather-app.git
    cd weather-app
+
+2. **Install Dependencies**
+   ```bash
+   npm install
+
+3. **Install Dependencies**
+   ```bash
+   npm install
+
+4. **Install Dependencies**
+    Create a .env file in the root directory and add your OpenWeather API key
+   ```bash
+   VITE_API_KEY=your_api_key_here
+
+5. **Run the Application**
+   ```bash
+   npm run dev
+
+6. **Build the Application**
+   ```bash
+   npm run build
+
+
+
