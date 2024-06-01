@@ -1,9 +1,33 @@
-# React + Vite
+# Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+The Weather App is a React application that provides real-time weather information based on the user's current location or a specified city. It leverages the OpenWeatherMap API to fetch and display weather data, including temperature, humidity, visibility, wind speed, and general weather conditions.
 
-Currently, two official plugins are available:
+## Features
+- **Geolocation-based Weather Information**: Automatically fetches weather data based on the user's current location.
+- **City Search**: Allows users to search for weather information in a specific city.
+- **Animated Weather Icons**: Displays weather icons using the `react-animated-weather` library for a more engaging user experience.
+- **Real-time Updates**: Weather information is updated every minute to ensure data freshness.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-# geo-weather-application
+## Sequence Diagram
+![Sequence Diagram](communication-digram.png)
+
+### Brief Explanation
+1. **User Requests Location**: The application requests the user's location using the Geolocation API.
+2. **User Grants/Deny Permission**: The user either grants or denies location access.
+3. **Fetch Weather Data**: If permission is granted, the app fetches weather data from the OpenWeatherMap API using the coordinates obtained.
+4. **Display Weather Information**: The app displays the weather information on the screen. If the user denies permission, a prompt to enter a city is displayed.
+5. **City Search**: Users can enter a city name to fetch weather data for that specific location, which is then displayed.
+
+## Installation
+
+### Prerequisites
+- Node.js (v14 or higher)
+- npm (v6 or higher)
+
+### Steps
+
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/yourusername/weather-app.git
+   cd weather-app
