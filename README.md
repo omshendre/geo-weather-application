@@ -34,27 +34,19 @@ The Weather App is a React application that provides real-time weather informati
    ```bash
    git clone https://github.com/yourusername/weather-app.git
    cd weather-app
-
 2. **Install Dependencies**
    ```bash
    npm install
-
 3. **Install Dependencies**
    ```bash
    npm install
-
 4. **Install Dependencies**
     Create a .env file in the root directory and add your OpenWeather API key
    ```bash
    VITE_API_KEY=your_api_key_here
-
 5. **Run the Application**
    ```bash
    npm run dev
-
 6. **Build the Application**
    ```bash
    npm run build
-
-
-
