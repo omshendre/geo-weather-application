@@ -78,7 +78,7 @@ const CurrentLocation = ({apiKey}) => {
 
     const interval = setInterval(() => {
       fetchData();
-    }, 20000);
+    }, 10000);
 
     return () => clearInterval(interval);
   }, []);
