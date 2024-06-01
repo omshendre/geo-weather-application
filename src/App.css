@@ -1,0 +1,54 @@
+/* App.css */
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.header-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.large-text {
+  font-size: 1.25rem;
+}
+
+.input-box {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid white; /* Change border color to white */
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: white;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.error-text {
+  color:black;
+  font-size: 1rem;
+}
+
+.footer-info {
+  color: rgba(255, 255, 255, 0.9); /* Set footer text color to white with some transparency */
+}
+
+.footer-info a {
+  color: floralwhite; /* Set footer link color to floralwhite */
+  font-weight: bold;
+}

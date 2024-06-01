@@ -1,0 +1,10 @@
+<svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <!-- Rainbow -->
+  <path d="M0,88 A56,56 0 0,1 114,88" fill="none" stroke="red" stroke-width="8" />
+  <path d="M8,88 A48,48 0 0,1 106,88" fill="none" stroke="orange" stroke-width="8" />
+  <path d="M16,88 A40,40 0 0,1 98,88" fill="none" stroke="yellow" stroke-width="8" />
+  <path d="M24,88 A32,32 0 0,1 90,88" fill="none" stroke="green" stroke-width="8" />
+  <path d="M32,88 A24,24 0 0,1 82,88" fill="none" stroke="blue" stroke-width="8" />
+  <path d="M40,88 A16,16 0 0,1 74,88" fill="none" stroke="indigo" stroke-width="8" />
+  <path d="M48,88 A8,8 0 0,1 64,88" fill="none" stroke="violet" stroke-width="8" />
+</svg>
