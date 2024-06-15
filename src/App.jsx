@@ -13,7 +13,7 @@ function App() {
     // Simulate loading data (replace with actual logic to fetch weather data)
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 3000);
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, []);
